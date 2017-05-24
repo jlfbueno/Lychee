@@ -52,6 +52,11 @@ header.bind = function() {
 	header.dom('#button_archive')     .on(eventName, function() { album.getArchive(album.getID()) })
 	header.dom('#button_star')        .on(eventName, function() { photo.setStar([ photo.getID() ]) })
 	header.dom('#button_back_home')   .on(eventName, function() { lychee.goto() })
+    header.dom('.header__search').on('keyup', function(e) {
+		if (e.keyCode==13){
+        	search.find($(this).val());
+       	}
+    })
 	header.dom('#button_back')        .on(eventName, function() { lychee.goto(album.getID()) })
 
 	header.dom('.header__search').on('keyup click', function() { search.find($(this).val()) })
