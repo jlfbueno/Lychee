@@ -189,13 +189,6 @@ lychee.load = function() {
 		else album.load(albumID)
 
 	} else {
-
-		// Trash albums.json when filled with search results
-		if (search.hash!=null) {
-			albums.json = null
-			search.hash = null
-		}
-
 		// Trash data
 		album.json = null
 		photo.json = null

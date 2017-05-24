@@ -29,20 +29,18 @@ view.albums = {
 			let albumsData = ''
 
 			// Smart Albums
-			if (lychee.publicMode===false) {
+            if (lychee.publicMode === false && albums.json.num) {
 
-				albums.parse(albums.json.smartalbums.unsorted)
-				albums.parse(albums.json.smartalbums.public)
-				albums.parse(albums.json.smartalbums.starred)
-				albums.parse(albums.json.smartalbums.recent)
+				albums.parse(albums.json.smartalbums.unsorted);
+				albums.parse(albums.json.smartalbums.public);
+				albums.parse(albums.json.smartalbums.starred);
+				albums.parse(albums.json.smartalbums.recent);
 
-				smartData = build.divider('Smart Albums') + build.album(albums.json.smartalbums.unsorted) + build.album(albums.json.smartalbums.public) + build.album(albums.json.smartalbums.starred) + build.album(albums.json.smartalbums.recent)
-
+				smartData = build.divider('Smart Albums') + build.album(albums.json.smartalbums.unsorted) + build.album(albums.json.smartalbums.public) + build.album(albums.json.smartalbums.starred) + build.album(albums.json.smartalbums.recent);
 			}
 
 			// Albums
-			if (albums.json.albums && albums.json.num!==0) {
-
+			if (albums.json.albums) {
 				$.each(albums.json.albums, function() {
 					albums.parse(this)
 					albumsData += build.album(this)
