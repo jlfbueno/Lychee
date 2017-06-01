@@ -57,6 +57,14 @@ lychee.init = function() {
 			lychee.checkForUpdates = data.config.checkForUpdates || '1'
 
 			lychee.setMode('public')
+			api.post('Session::login', {user:"lychee",password:"lychee"}, function (data) {
+				if (data === true) {
+					window.location.reload();
+				} else {
+					// Show error and reactive button
+					basicModal.error('password');
+				}
+			});
 
 		} else if (data.status===0) {
 
