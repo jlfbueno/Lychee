@@ -29,7 +29,7 @@ view.albums = {
 			let albumsData = ''
 
 			// Smart Albums
-            if (lychee.publicMode === false && albums.json.num) {
+            if (lychee.publicMode === false && albums.json&& albums.json.num) {
 
 				albums.parse(albums.json.smartalbums.unsorted);
 				albums.parse(albums.json.smartalbums.public);
@@ -40,7 +40,7 @@ view.albums = {
 			}
 
 			// Albums
-			if (albums.json.albums) {
+			if (albums.json&&albums.json.albums) {
 				$.each(albums.json.albums, function() {
 					albums.parse(this)
 					albumsData += build.album(this)
