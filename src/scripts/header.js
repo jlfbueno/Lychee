@@ -59,7 +59,6 @@ header.bind = function() {
     })
 	header.dom('#button_back')        .on(eventName, function() { lychee.goto(album.getID()) })
 
-	header.dom('.header__search').on('keyup click', function() { search.find($(this).val()) })
 	header.dom('.header__clear').on(eventName, function() {
 		header.dom('.header__search').focus()
 		search.reset()
