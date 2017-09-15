@@ -21,17 +21,17 @@ function search($term) {
 	 * Photos
 	 */
 
-	$query  = Database::prepare(Database::get(), "SELECT id, title, tags, public, star, album, thumbUrl, takestamp, url, medium FROM ? WHERE title LIKE '%?%' OR description LIKE '%?%' OR tags LIKE '%?%'", array(LYCHEE_TABLE_PHOTOS, $term, $term, $term));
-	$result = Database::execute(Database::get(), $query, __METHOD__, __LINE__);
+//	$query  = Database::prepare(Database::get(), "SELECT id, title, tags, public, star, album, thumbUrl, takestamp, url, medium FROM ? WHERE title LIKE '%?%' OR description LIKE '%?%' OR tags LIKE '%?%'", array(LYCHEE_TABLE_PHOTOS, $term, $term, $term));
+//	$result = Database::execute(Database::get(), $query, __METHOD__, __LINE__);
 
-	if ($result===false) return false;
+//	if ($result===false) return false;
 
-	while($photo = $result->fetch_assoc()) {
+//	while($photo = $result->fetch_assoc()) {
 
-		$photo = Photo::prepareData($photo);
-		$return['photos'][$photo['id']] = $photo;
+//		$photo = Photo::prepareData($photo);
+//		$return['photos'][$photo['id']] = $photo;
 
-	}
+//	}
 
 	/**
 	 * Albums

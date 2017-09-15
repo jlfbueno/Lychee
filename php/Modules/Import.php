@@ -167,7 +167,7 @@ final class Import {
 
 				if ($import!==true&&$import!=='Notice: Import only contains albums!') {
 					$error = true;
-					Log::error(Database::get(), __METHOD__, __LINE__, 'Could not import folder. Function returned warning.');
+					Log::error(Database::get(), __METHOD__, __LINE__, 'Could not import folder ' . $file .'. Function returned warning.');
 					continue;
 				}
 

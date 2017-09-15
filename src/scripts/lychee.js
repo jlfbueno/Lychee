@@ -57,6 +57,14 @@ lychee.init = function() {
 			lychee.checkForUpdates = data.config.checkForUpdates || '1'
 
 			lychee.setMode('public')
+			api.post('Session::login', {user:"lychee",password:"lychee"}, function (data) {
+				if (data === true) {
+					window.location.reload();
+				} else {
+					// Show error and reactive button
+					basicModal.error('password');
+				}
+			});
 
 		} else if (data.status===0) {
 
@@ -189,13 +197,6 @@ lychee.load = function() {
 		else album.load(albumID)
 
 	} else {
-
-		// Trash albums.json when filled with search results
-		if (search.hash!=null) {
-			albums.json = null
-			search.hash = null
-		}
-
 		// Trash data
 		album.json = null
 		photo.json = null

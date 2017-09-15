@@ -15,33 +15,12 @@ albums.load = function() {
 	lychee.animate('.content', 'contentZoomOut')
 
 	if (albums.json===null) {
-
-		api.post('Albums::get', {}, function(data) {
-
 			let waitTime = 0
-
-			// Smart Albums
-			if (lychee.publicMode===false) albums._createSmartAlbums(data.smartalbums)
-
-			albums.json = data
-
-			// Calculate delay
-			let durationTime = (new Date().getTime() - startTime)
-			if (durationTime>300) waitTime = 0
-			else                  waitTime = 300 - durationTime
-
-			// Skip delay when opening a blank Lychee
-			if (!visible.albums() && !visible.photo() && !visible.album()) waitTime = 0
-			if (visible.album() && lychee.content.html()==='')             waitTime = 0
-
 			setTimeout(() => {
 				header.setMode('albums')
 				view.albums.init()
 				lychee.animate(lychee.content, 'contentZoomIn')
 			}, waitTime)
-
-		})
-
 	} else {
 
 		setTimeout(() => {

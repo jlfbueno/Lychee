@@ -122,7 +122,6 @@ gulp.task('main--scripts', ['main--js'], function() {
 
 	return gulp.src(paths.main.scripts)
 	           .pipe(plugins.concat('main.js', {newLine: "\n"}))
-	           .pipe(plugins.uglify())
 	           .on('error', catchError)
 	           .pipe(gulp.dest('../dist/'))
 
